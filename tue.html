@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+        
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <p class="date">📅 To-day</p>
+        <p id="fechaActual"></p>
+    </header>
+    <div class="dias">
+
+    <ul>
+        <li>
+            <a href="index.html">
+                <div class="dia">Mon</div>
+                <div class="number">10</div>
+            </a>
+        </li>
+        <li>
+            <a href="tue.html">
+                <div class="dia">Tue</div>
+                <div class="number">11</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Wen</div>
+                <div class="number">12</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Thu</div>
+                <div class="number">13</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Fri</div>
+                <div class="number">11</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Sat</div>
+                <div class="number">12</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Sun</div>
+                <div class="number">13</div>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+<div class="tasks">
+    <div class="agregar">
+        <div class="agregar_box">
+            <input class="text" type="text" id="tituloInput" placeholder="Título de la tarea">
+            <input class="text" type="time" id="horaInput" placeholder="Hora de realización">    
+        </div>
+         <textarea class="text2" id="detallesInput" placeholder="Detalles de la tarea"></textarea>
+        <button class="text" id="agregarBtn">AGREGAR TAREA</button>
+        
+    </div>
+    <ul id="listaTareas"></ul>
+    <div class="task_box">
+        <div class="task_box_line">
+            <div class="title">☀️ Wakeup</div>
+            <div class="hours">7:20 a.m</div>
+        </div>
+        <div class="task_box_details">
+            <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
+        </div>
+    </div>
+    <div class="task_box">
+        <div class="task_box_line">
+            <div class="title"> Dia libre</div>
+            <div class="hours">8:45 a.m</div>
+        </div>
+        <div class="task_box_details">
+            <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
+        </div>
+    </div>
+    <div class="task_box">
+        <div class="task_box_line">
+            <div class="title">👯 coffe </div>
+            <div class="hours">4:00 p.m</div>
+        </div>
+        <div class="task_box_details">
+            <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
+        </div>
+    </div>
+    
+</div>
+
+<footer>
+    <p>hecho con 💖</p>
+    <a href="#">@ara.garrido</a>
+</footer>
+<script>
+    // Obtener la referencia al elemento donde se mostrará la fecha
+    var elementoFecha = document.getElementById("fechaActual");
+  
+    // Obtener la fecha actual
+    var fecha = new Date();
+  
+    // Opciones de formato de fecha
+    var opcionesFecha = { day: "numeric", month: "long" };
+  
+    // Formatear la fecha
+    var fechaFormateada = fecha.toLocaleDateString(undefined, opcionesFecha);
+  
+    // Asignar la fecha formateada al contenido del elemento
+    elementoFecha.textContent = fechaFormateada;
+  </script>
+  <script>
+    var tituloInput = document.getElementById("tituloInput");
+    var horaInput = document.getElementById("horaInput");
+    var detallesInput = document.getElementById("detallesInput");
+    var btnAgregar = document.getElementById("agregarBtn");
+    var listaTareas = document.getElementById("listaTareas");
+  
+    function agregarTarea() {
+      var titulo = tituloInput.value;
+      var hora = horaInput.value;
+      var detalles = detallesInput.value;
+  
+      var tarea = {
+        titulo: titulo,
+        hora: hora,
+        detalles: detalles
+      };
+  
+      // Crear un elemento de lista
+      var elementoLista = document.createElement("li");
+  
+      // Crear un elemento de encabezado para el título
+      var elementoTitulo = document.createElement("h3");
+      elementoTitulo.textContent = tarea.titulo;
+      elementoLista.appendChild(elementoTitulo);
+  
+      // Crear un elemento de párrafo para la hora
+      var elementoHora = document.createElement("p");
+      elementoHora.textContent =  tarea.hora + " am ";
+      elementoLista.appendChild(elementoHora);
+  
+      // Crear un elemento de párrafo para los detalles
+      var elementoDetalles = document.createElement("p");
+      elementoDetalles.textContent = "Detalles: " + tarea.detalles;
+      elementoLista.appendChild(elementoDetalles);
+  
+      // Agregar el elemento de lista a la lista de tareas
+      listaTareas.appendChild(elementoLista);
+  
+      // Limpiar los campos de entrada
+      tituloInput.value = "";
+      horaInput.value = "";
+      detallesInput.value = "";
+    }
+  
+    btnAgregar.addEventListener("click", agregarTarea);
+  </script>
+
+
+
+
+  
+</body>
