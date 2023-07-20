@@ -22,6 +22,8 @@ body {
     padding: auto;
     color: var(--color-cinco);
     font-family: var(--font-principal);
+    font-size: large;
+    margin: 2px;
   }
 header {
     width: auto;
@@ -62,14 +64,6 @@ button:hover {
     border: 1px solid var(--color-secundario);
     color: var(--color-secundario);
 }
-ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
 .tasks {
     padding: 10px;
     max-width:600px ;
@@ -79,13 +73,32 @@ li {
     margin: 10px 0;
 
 }
-li a:hover {
+.point {
+    display: none;
+}
+.dias a:hover {
     color: var(--color-secundario);
 }
-li a:active {
+.dias a:active {
     color: var(--color-secundario);
+}
+.dias a:focus {
+    color: var(--color-secundario);
+
+}
+.dias a:focus .point{
+    display: block;
 }
 
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
 
 .agregar {
     display: flex;
@@ -99,6 +112,7 @@ li a:active {
     padding: 20px 10px;
     margin: 20px 0;
 }
+
 ul#listaTareas {
     margin-top: 8px;
     border-radius: 10px;
@@ -151,23 +165,32 @@ ul#listaTareas li {
     width: 85%;
     border: 1px solid var(--color-cinco);
     border-radius: 6px;
+    padding: 8px;
 
 }
 #horaInput {
     border: 1px solid var(--color-cinco);
     border-radius: 6px;
-
+    padding: 8px;
 }
 #detallesInput {
     border: 1px solid var(--color-cinco);
     border-radius: 6px;
-
+    padding: 8px;
 }
+
 .agregar .agregar_box {
     display: flex;
     justify-content: space-between;
 }
 .task_box:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
+    border-radius: 10px;
+    padding: 20px 10px;
+    margin: 20px 0;
+}
+.task_box:focus {
     background-color: var(--color-secundario);
     color: var(--color-principal);
     border-radius: 10px;
@@ -201,7 +224,11 @@ footer {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: 0;
+    position: absolute; 
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 0px;
+    
 }
 footer p{
    padding: 0;

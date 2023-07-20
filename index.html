@@ -23,42 +23,49 @@
             <a href="index.html">
                 <div class="dia">Mon</div>
                 <div class="number">10</div>
-            </a>
-        </li>
-        <li>
-            <a href="tue.html">
-                <div class="dia">Tue</div>
-                <div class="number">11</div>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="dia">Wen</div>
-                <div class="number">12</div>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="dia">Thu</div>
-                <div class="number">13</div>
+                <div class="point">•</div>
             </a>
         </li>
         <li>
             <a href="#">
                 <div class="dia">Tue</div>
                 <div class="number">11</div>
+                <div class="point">•</div>
             </a>
         </li>
         <li>
             <a href="#">
                 <div class="dia">Wen</div>
                 <div class="number">12</div>
+                <div class="point">•</div>
             </a>
         </li>
         <li>
             <a href="#">
                 <div class="dia">Thu</div>
                 <div class="number">13</div>
+                <div class="point">•</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Tue</div>
+                <div class="number">11</div>
+                <div class="point">•</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Wen</div>
+                <div class="number">12</div>
+                <div class="point">•</div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="dia">Thu</div>
+                <div class="number">13</div>
+                <div class="point">•</div>
             </a>
         </li>
         
@@ -75,99 +82,103 @@
         
     </div>
     <ul id="listaTareas"></ul>
-    <div class="task_box">
+
+    <div class="task_box" onclick="toggleDetails()">
         <div class="task_box_line">
             <div class="title">😴 Sleep</div>
             <div class="hours">7:20 a.m</div>
         </div>
-        <div class="task_box_details">
+        <div class="task_box_details" id="details">
             <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
+            <p class="hidden_paragraph">Segundo párrafo que se ocultará inicialmente.</p>
         </div>
     </div>
-    <div class="task_box">
-        <div class="task_box_line">
-            <div class="title">☕️ Breakfast</div>
-            <div class="hours">8:45 a.m</div>
-        </div>
-        <div class="task_box_details">
-            <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
-        </div>
+<div class="task_box">
+    <div class="task_box_line">
+        <div class="title">☕️ Breakfast</div>
+        <div class="hours">8:45 a.m</div>
     </div>
-    <div class="task_box">
-        <div class="task_box_line">
-            <div class="title">👯 coffe with bro</div>
-            <div class="hours">4:00 p.m</div>
-        </div>
-        <div class="task_box_details">
-            <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
-        </div>
+    <div class="task_box_details">
+        <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
     </div>
+</div>
+<div class="task_box">
+    <div class="task_box_line">
+        <div class="title">👯 coffe with bro</div>
+        <div class="hours">4:00 p.m</div>
+    </div>
+    <div class="task_box_details">
+        <p>Lorem ipsum dolor sit amet, eaque voluptatem enim expedita quia molestiae!</p>
+    </div>
+</div>
 </div>
 
 <footer>
-    <p>hecho con 💖</p>
-    <a href="#">@ara.garrido</a>
+<p>hecho con 💖</p>
+<a href="#">@ara.garrido</a>
 </footer>
 <script>
-    // Obtener la referencia al elemento donde se mostrará la fecha
-    var elementoFecha = document.getElementById("fechaActual");
-  
-    // Obtener la fecha actual
-    var fecha = new Date();
-  
-    // Opciones de formato de fecha
-    var opcionesFecha = { day: "numeric", month: "long" };
-  
-    // Formatear la fecha
-    var fechaFormateada = fecha.toLocaleDateString(undefined, opcionesFecha);
-  
-    // Asignar la fecha formateada al contenido del elemento
-    elementoFecha.textContent = fechaFormateada;
-  </script>
-  <script>
-    var tituloInput = document.getElementById("tituloInput");
-    var horaInput = document.getElementById("horaInput");
-    var detallesInput = document.getElementById("detallesInput");
-    var btnAgregar = document.getElementById("agregarBtn");
-    var listaTareas = document.getElementById("listaTareas");
-  
-    function agregarTarea() {
-      var titulo = tituloInput.value;
-      var hora = horaInput.value;
-      var detalles = detallesInput.value;
-  
-      var tarea = {
-        titulo: titulo,
-        hora: hora,
-        detalles: detalles
-      };
-  
-      // Crear un elemento de lista
-      var elementoLista = document.createElement("li");
-  
-      // Crear un elemento de encabezado para el título
-      var elementoTitulo = document.createElement("h3");
-      elementoTitulo.textContent = tarea.titulo;
-      elementoLista.appendChild(elementoTitulo);
-  
-      // Crear un elemento de párrafo para la hora
-      var elementoHora = document.createElement("p");
-      elementoHora.textContent =  tarea.hora + "am ";
-      elementoLista.appendChild(elementoHora);
-  
-      // Crear un elemento de párrafo para los detalles
-      var elementoDetalles = document.createElement("p");
-      elementoDetalles.textContent = "Detalles: " + tarea.detalles;
-      elementoLista.appendChild(elementoDetalles);
-  
-      // Agregar el elemento de lista a la lista de tareas
-      listaTareas.appendChild(elementoLista);
-  
-      // Limpiar los campos de entrada
-      tituloInput.value = "";
-      horaInput.value = "";
-      detallesInput.value = "";
-    }
-  
-    btnAgregar.addEventListener("click", agregarTarea);
-  </script>
+// Obtener la referencia al elemento donde se mostrará la fecha
+var elementoFecha = document.getElementById("fechaActual");
+
+// Obtener la fecha actual
+var fecha = new Date();
+
+// Opciones de formato de fecha
+var opcionesFecha = { day: "numeric", month: "long" };
+
+// Formatear la fecha
+var fechaFormateada = fecha.toLocaleDateString(undefined, opcionesFecha);
+
+// Asignar la fecha formateada al contenido del elemento
+elementoFecha.textContent = fechaFormateada;
+</script>
+<script>
+var tituloInput = document.getElementById("tituloInput");
+var horaInput = document.getElementById("horaInput");
+var detallesInput = document.getElementById("detallesInput");
+var btnAgregar = document.getElementById("agregarBtn");
+var listaTareas = document.getElementById("listaTareas");
+
+function agregarTarea() {
+  var titulo = tituloInput.value;
+  var hora = horaInput.value;
+  var detalles = detallesInput.value;
+
+  var tarea = {
+    titulo: titulo,
+    hora: hora,
+    detalles: detalles
+  };
+
+  // Crear un elemento de lista
+  var elementoLista = document.createElement("li");
+
+  // Crear un elemento de encabezado para el título
+  var elementoTitulo = document.createElement("h3");
+  elementoTitulo.textContent = tarea.titulo;
+  elementoLista.appendChild(elementoTitulo);
+
+  // Crear un elemento de párrafo para la hora
+  var elementoHora = document.createElement("p");
+  elementoHora.textContent =  tarea.hora + "am ";
+  elementoLista.appendChild(elementoHora);
+
+  // Crear un elemento de párrafo para los detalles
+  var elementoDetalles = document.createElement("p");
+  elementoDetalles.textContent = "Detalles: " + tarea.detalles;
+  elementoLista.appendChild(elementoDetalles);
+
+  // Agregar el elemento de lista a la lista de tareas
+  listaTareas.appendChild(elementoLista);
+
+  // Limpiar los campos de entrada
+  tituloInput.value = "";
+  horaInput.value = "";
+  detallesInput.value = "";
+}
+
+btnAgregar.addEventListener("click", agregarTarea);
+</script>
+
+    <body>
